@@ -39,7 +39,7 @@
               <td>{{item.once}}</td>
               <td>{{item.monthly}}</td>
               <td>
-                <button type="button" class="btn btn-primary btn-sm" ng-click="$ctrl.deleteItem($ctrl.itemsIncome, item)">Delete</button>
+                <button type="button" class="delete-button btn btn-primary btn-sm" ng-click="$ctrl.deleteItem($ctrl.itemsIncome, item)">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -67,7 +67,7 @@
             </div>
         </div>
 
-          <input class="btn btn-primary btn-sm" type="submit" ng-disabled="$ctrl.formIncome.$invalid" value="New Item">
+          <input class="new-item btn btn-primary btn-sm" type="submit" ng-disabled="$ctrl.formIncome.$invalid" value="New Item">
       </form>
 
       </div>
@@ -92,7 +92,7 @@
               <td>{{item.once}}</td>
               <td>{{item.monthly}}</td>
               <td>
-                <button type="button" class="btn btn-primary btn-sm" ng-click="$ctrl.deleteItem($ctrl.itemsExpense, item)">Delete</button>
+                <button type="button" class="delete-button btn btn-primary btn-sm" ng-click="$ctrl.deleteItem($ctrl.itemsExpense, item)">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -116,7 +116,7 @@
               </div>
           </div>
 
-            <input class="btn btn-primary btn-sm" type="submit" ng-disabled="$ctrl.formExpenses.$invalid" value="New Item">
+            <input class="new-item btn btn-primary btn-sm" type="submit" ng-disabled="$ctrl.formExpenses.$invalid" value="New Item">
         </form>
       </div>
     </div>
@@ -126,7 +126,26 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="container">
     <div class="tableTitle">
-      <h3>Expenses Total></h3>
+      <h3>Revenue Total</h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>One-Time</th>
+              <th>Monthly</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{$ctlr.oneTimeRevenue}}</td>
+              <td>{{$ctrl.monthlyRevenue}}</td>
+              <td>{{$ctrl.totalRevenue}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="tableTitle">
+      <h3>Expenses Total</h3>
         <table class="table table-hover">
           <thead>
             <tr>

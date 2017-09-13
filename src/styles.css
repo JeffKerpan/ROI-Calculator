@@ -3,4 +3,22 @@ body {
 	/* background-color: 'red'; */
 	background-color: rgba(169, 250, 215, 1);
   font-family: 'NunitoSans', sans-serif;
+},
+
+button.delete-button.btn.btn-primary.btn-sm {
+  color: 'red';
+  background-color: #e2242d !important;
+  },
+
+/*.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+  background-color: #e2242d !important;
+}*/
+
+input.new-item.btn.btn-primary.btn-sm {
+  background-color: 'green';
+  font-size: 10px;
 }
