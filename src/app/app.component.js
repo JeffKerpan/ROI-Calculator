@@ -23,7 +23,7 @@
     vm.capitalRoi = capitalRoi;
 
     vm.newItemsIncome = {};
-    vm.newItemsExpense = {};
+    vm.newItemsExpenses = {};
 
     function onInit() {
       vm.itemsIncome = [
@@ -60,6 +60,28 @@
       calculateData();
     }
 
+    addItem(array, newItem) => {
+      if (newItem === vm.newItemsIncome) {
+        vm.itemsIncome.push(vm.newItemsIncome);
+      } else if (newItem === vm.newItemsExpenses) {
+        vm.itemsExpenses.push(vm.newItemsExpenses);
+      }
+      delete vm.newItemsIncome;
+      delete vm.newItemsExpenses;
+      calculateData();
+    }
+
+    deleteItem(array, item) => {
+      var result = 0;
+      for(let i=0; i<array.length, i++) {
+        if (array[i].name === item.name) {
+          result = i;
+        }
+      }
+      array.splice(result,1);
+      calculateData();
+    }
+
     sumTotal(array, times) => {
       var result = 0;
       for(let i=0; i<array.length; i++) {
@@ -72,46 +94,22 @@
       return num + (num2 * 12);
     }
 
-    addItem(array, newItem) => {
-      if (newItem === vm.newItemsIncome) {
-        vm.itemsIncome.push(vm.newItemsIncome);
-      } else if (newItem === vm.newItemsExpense) {
-        vm.itemsExpense.push(vm.newItemsExpense);
-      }
-      delete vm.newItemsIncome;
-      delete vm.newItemsExpense;
-      calculateData();
-    }
-
-    deleteItem(array, item) => {
-      var result = 0;
-      for(let i=0; i<array.length, i++) {
-        if (array[i].name === item.name) {
-          result = 1;
-        }
-      }
-      array.splice(result, 1);
-      calculateData();
-    }
-
     monthlyContribution() => return vm.monthlyIncome - vm.monthlyExpenses;
 
     contriubtionProfit() => return vm.totalRevenue -vm.totalExpenses;
 
     contributionMargin() => {
-      if (vm.totalRevenue === 0) {
+      if (vm.totalRevenue == 0) {
         return 0;
-      } else {
-        return (vm.totalContributionProfit/vm.totalRevenue *100).toFixed(0);
       }
+        return (vm.totalContributionProfit/vm.totalRevenue *100).toFixed(0);
     }
 
     capitalRoi() => {
-      if (vm.monthlyContributionProfit === 0) {
+      if (vm.monthlyContributionProfit == 0) {
         return 0;
-      } else {
-        return ((vm.onceSumExpenses - vm.onceSumIncome) / vm.monthlyContributionProfit).toFixed(1);
       }
+        return ((vm.onceSumExpenses - vm.onceSumIncome) / vm.monthlyContributionProfit).toFixed(1);
     }
 
     calculateData() => {
